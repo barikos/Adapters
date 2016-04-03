@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Adapters</string>
+
+    <string name="text_activity_book_title">Книги</string>
+    <string name="text_activity_genre_title">Жанры</string>
+    <string name="text_activity_recycler_title">Книги</string>
+    <string name="text_activity_exp_title">Авторы</string>
+</resources>
