@@ -12,13 +12,13 @@ public class Data {
     private static final String[] AUTHORS = {
             "Михаил Булгаков","Михаил Булгаков","Эрнест Хемингуей","Эрнест Хемингуей",
             "Энтони Берджес","Джорж Оруэлл","Михаил Шолохов",
-            "Братья Стругацкие","Братья Стругацкие","Братья Стругацкие",
+            "Джорж Мартин","Братья Стругацкие","Братья Стругацкие",
             "Антон Чехов","Антон Чехов"};
 
     private static final String[] BOOKS = {
             "Морфий","Белая гвардия","Прощай оружие","По ком звонит колокол",
             "Заводной апельсин","1984","Тихий Дон",
-            "Понедельник начинается в субботу","Пикник на обочине","Трудно быть богом",
+            "Игра престолов","Пикник на обочине","Трудно быть богом",
             "Палата №6","Жалобная книга"};
 
     private static final int[] IMAGES_BOOK = {
@@ -29,7 +29,7 @@ public class Data {
             R.drawable.img_book_orange,
             R.drawable.img_book_1984,
             R.drawable.img_book_don,
-            R.drawable.img_book_monday,
+            R.drawable.img_book_game,
             R.drawable.img_book_picnic,
             R.drawable.img_book_hard_to_be,
             R.drawable.img_book_ward,
@@ -41,8 +41,14 @@ public class Data {
             "История","Киберпанк","Антиутопия","Сатира"};
 
     private static final int[] IMAGES_GENRE = {
-            R.drawable.img_genre_fantasy,
-            };
+            R.drawable.img_genre_fantasy22,
+            R.drawable.img_genre_adv,
+            R.drawable.img_genre_detec,
+            R.drawable.img_genre_fantastic,
+            R.drawable.img_genre_history,
+            R.drawable.img_genre_cyber,
+            R.drawable.img_genre_anti,
+            R.drawable.img_genre_sat};
 
     public ArrayList getBooksData(){
         ArrayList arrayList = new ArrayList();
@@ -60,7 +66,7 @@ public class Data {
         ArrayList arrayList = new ArrayList();
         for (int i=0; i<GENRE.length; i++){
             arrayList.add(new Genre()
-                    .setImage(R.drawable.img_genre_fantasy)
+                    .setImage(IMAGES_GENRE[i])
                     .setName(GENRE[i]));
         }
         return arrayList;

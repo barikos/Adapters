@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.minutes111.adapters.R;
 import com.minutes111.adapters.model.Book;
+import com.minutes111.adapters.model.Data;
 import com.minutes111.adapters.ui.adapter.RecyclerBookAdapter;
 
 import java.util.ArrayList;
@@ -30,7 +31,8 @@ public class RecyclerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler);
 
         setTitle(R.string.text_activity_recycler_title);
-        mData = fillData();
+        Data data = new Data();
+        mData = data.getBooksData();
 
         mRecyclerView = (RecyclerView)findViewById(R.id.rcView_recycler);
         mRecyclerView.setHasFixedSize(true);
@@ -66,15 +68,4 @@ public class RecyclerActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private ArrayList fillData() {
-        ArrayList arrayList = new ArrayList();
-        for (int i = 0; i<20; i++){
-            arrayList.add(new Book()
-                    .setImage(R.drawable.img_book_morphine)
-                    .setTitle("Морфий")
-                    .setAuthor("Михаил Булгаков")
-                    .setProgress(4));
-        }
-        return arrayList;
-    }
 }

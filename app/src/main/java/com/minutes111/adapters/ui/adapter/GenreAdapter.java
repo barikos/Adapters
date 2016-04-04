@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.minutes111.adapters.R;
 import com.minutes111.adapters.model.Genre;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -61,6 +62,11 @@ public class GenreAdapter extends BaseAdapter{
         }
 
         Genre genre = (Genre)getItem(position);
+        Picasso
+                .with(mContext)
+                .load(genre.getImage())
+                .resize(150,150)
+                .into(holder.imgItem);
         holder.imgItem.setImageResource(genre.getImage());
         holder.txtItem.setText(genre.getName());
 
