@@ -9,15 +9,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.minutes111.adapters.ui.mainActivity.BookActivity">
+        <activity android:name=".ui.BookActivity">
 
         </activity>
 
-        <activity android:name="com.minutes111.adapters.ui.mainActivity.GenreActivity">
+        <activity android:name=".ui.GenreActivity">
 
         </activity>
         
-        <activity android:name="com.minutes111.adapters.ui.mainActivity.RecyclerActivity">
+        <activity android:name=".ui.RecyclerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.minutes111.adapters.ui.mainActivity.ExpandableActivity">
+        <activity android:name=".ui.ExpandableActivity">
 
         </activity>
     </application>

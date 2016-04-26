@@ -1,4 +1,4 @@
-package com.minutes111.adapters.ui.mainActivity;
+package com.minutes111.adapters.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,10 +25,12 @@ public class BookActivity extends AppCompatActivity {
         Data data = new Data();
         mData = data.getBooksData();
 
+        Bundle bundle = new Bundle();
+
+
         BookAdapter adapter = new BookAdapter(this, mData);
         mListView = (ListView) findViewById(R.id.lView_books);
         mListView.setAdapter(adapter);
     }
-
 
 }

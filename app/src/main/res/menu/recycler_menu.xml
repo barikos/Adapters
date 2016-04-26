@@ -2,7 +2,7 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.minutes111.adapters.ui.mainActivity.GenreActivity">
+    tools:context=".ui.GenreActivity">
     <item
         android:id="@+id/rec_menu_lin"
         android:title="lin"

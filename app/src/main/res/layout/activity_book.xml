@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.minutes111.adapters.ui.mainActivity.BookActivity"
+    tools:context=".ui.BookActivity"
     android:orientation="vertical"
     android:background="@drawable/img_background">
 

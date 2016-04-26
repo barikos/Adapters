@@ -1,4 +1,4 @@
-package com.minutes111.adapters.ui.mainActivity;
+package com.minutes111.adapters.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

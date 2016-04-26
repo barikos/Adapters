@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.minutes111.adapters.ui.mainActivity.RecyclerActivity;
+import com.minutes111.adapters.ui.RecyclerActivity;
 import com.minutes111.adapters.R;
 import com.minutes111.adapters.model.Book;
 import com.squareup.picasso.Picasso;
