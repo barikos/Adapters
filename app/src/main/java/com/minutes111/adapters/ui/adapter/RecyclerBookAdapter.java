@@ -1,6 +1,7 @@
 package com.minutes111.adapters.ui.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.minutes111.adapters.ui.RecyclerActivity;
 import com.minutes111.adapters.R;
 import com.minutes111.adapters.model.Book;
-import com.squareup.picasso.Picasso;
+import com.minutes111.adapters.ui.RecyclerActivity;
+import com.minutes111.adapters.util.ConvertImage;
 
 import java.util.ArrayList;
 
@@ -64,14 +65,12 @@ public class RecyclerBookAdapter extends RecyclerView.Adapter<RecyclerBookAdapte
     @Override
     public void onBindViewHolder(BookViewHolder holder, int position) {
         Book book = (Book) mBooksData.get(position);
-        ImageView imageView = holder.imgItem;
-        Picasso
-                .with(mContext)
-                .load(book.getImage())
-                .into(imageView);
-        holder.titleItem.setText(book.getTitle());
+        Bitmap img = ConvertImage.getBitmapImage(book.getImage());
+
+        holder.imgItem.setImageBitmap(img);
+        holder.titleItem.setText(book.getName());
         holder.authorItem.setText(book.getAuthor());
-        holder.rbItem.setProgress(book.getProgress());
+        holder.rbItem.setProgress(book.getRating());
     }
 
     @Override

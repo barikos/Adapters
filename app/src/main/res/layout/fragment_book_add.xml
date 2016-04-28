@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txt_dialog_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Some text"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/edit_frag_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Название книги"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txt_dialog_header"/>
+    <EditText
+        android:id="@+id/edit_frag_auth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Автор"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edit_frag_name"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+</RelativeLayout>

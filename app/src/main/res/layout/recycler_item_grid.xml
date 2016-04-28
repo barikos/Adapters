@@ -31,5 +31,5 @@
         android:layout_height="wrap_content"
         style="?android:attr/ratingBarStyleSmall"
         android:max="5"
-        tools:progress="4"/>
+        tools:rating="4"/>
 </LinearLayout>

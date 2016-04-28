@@ -35,5 +35,5 @@
         android:layout_alignParentRight="true"
         android:layout_alignBottom="@id/img_rec"
         android:max="5"
-        tools:progress="4"/>
+        tools:rating="4"/>
 </RelativeLayout>

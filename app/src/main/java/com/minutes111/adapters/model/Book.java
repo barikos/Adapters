@@ -5,26 +5,26 @@ package com.minutes111.adapters.model;
  */
 public class Book {
 
-    private int mImage;
-    private String mTitle;
+    private byte[] mImage;
+    private String mName;
     private String mAuthor;
-    private int mProgress;
+    private int mRating;
 
-    public int getImage() {
+    public byte[] getImage() {
         return mImage;
     }
 
-    public Book setImage(int image) {
+    public Book setImage(byte[] image) {
         this.mImage = image;
         return this;
     }
 
-    public String getTitle() {
-        return mTitle;
+    public String getName() {
+        return mName;
     }
 
-    public Book setTitle(String title) {
-        this.mTitle = title;
+    public Book setName(String name) {
+        this.mName = name;
         return this;
     }
 
@@ -37,12 +37,12 @@ public class Book {
         return this;
     }
 
-    public int getProgress() {
-        return mProgress;
+    public int getRating() {
+        return mRating;
     }
 
-    public Book setProgress(int progress) {
-        this.mProgress = progress;
+    public Book setRating(int rating) {
+        this.mRating = rating;
         return this;
     }
 }

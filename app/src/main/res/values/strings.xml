@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">Adapters</string>
 
-    <string name="text_activity_book_title">Книги</string>
-    <string name="text_activity_genre_title">Жанры</string>
+
     <string name="text_activity_recycler_title">Книги</string>
-    <string name="text_activity_exp_title">Авторы</string>
+    <string name="btn_search">Поиск</string>
+    <string name="btn_add">Добавить</string>
+
+    <string name="txt_dialog_header">Введите данные</string>
+    <string name="edit_hint_name">Название книги</string>
+    <string name="edit_hint_author">Автор</string>
+    <string name="btb_dialog_add">Добавить</string>
+    <string name="btb_dialog_dismiss">Отменить</string>
+
 </resources>

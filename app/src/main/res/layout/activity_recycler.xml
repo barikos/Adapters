@@ -10,11 +10,39 @@
     tools:context=".ui.RecyclerActivity"
     android:background="@drawable/img_background">
 
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_search"
+        android:layout_alignParentRight="true"
+        android:onClick="onClickSearch"/>
+
+    <EditText
+        android:id="@+id/edit_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/btn_search"/>
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add"
+        android:layout_below="@id/btn_search"
+        android:layout_alignParentRight="true"
+        android:onClick="onClickAdd"/>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rcView_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal">
+        android:scrollbars="horizontal"
+        android:layout_below="@id/btn_add"
+        android:layout_marginTop="15dp">
 
     </android.support.v7.widget.RecyclerView>
+
+
 </RelativeLayout>
