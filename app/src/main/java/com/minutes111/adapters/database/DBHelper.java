@@ -1,4 +1,4 @@
-package com.minutes111.adapters.ui;
+package com.minutes111.adapters.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private Context mContext;
 
     private static final String CREATE_TABLE =
-            String.format("create table %s(%s integer primary key autoincrement, %s text,%s text,%s blob, %s integer)",
+            String.format("create table %s(%s integer primary key autoincrement, %s text,%s text,%s blob, %s real)",
                     DBContact.TABLE_NAME, DBContact.KEY_ID, DBContact.KEY_NAME,
                     DBContact.KEY_AUTH, DBContact.KEY_IMG, DBContact.KEY_RATING);
 
@@ -47,6 +47,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+
 
     private Bitmap imgToBitmap(int id){
         return BitmapFactory.decodeResource(mContext.getResources(), id);

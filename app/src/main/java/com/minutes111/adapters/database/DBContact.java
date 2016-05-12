@@ -1,4 +1,4 @@
-package com.minutes111.adapters.ui;
+package com.minutes111.adapters.database;
 
 /**
  * Created by barikos on 26.04.16.
