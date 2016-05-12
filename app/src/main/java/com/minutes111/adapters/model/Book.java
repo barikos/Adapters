@@ -8,7 +8,7 @@ public class Book {
     private byte[] mImage;
     private String mName;
     private String mAuthor;
-    private int mRating;
+    private float mRating;
 
     public byte[] getImage() {
         return mImage;
@@ -37,7 +37,7 @@ public class Book {
         return this;
     }
 
-    public int getRating() {
+    public float getRating() {
         return mRating;
     }
 

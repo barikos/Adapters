@@ -70,7 +70,7 @@ public class RecyclerBookAdapter extends RecyclerView.Adapter<RecyclerBookAdapte
         holder.imgItem.setImageBitmap(img);
         holder.titleItem.setText(book.getName());
         holder.authorItem.setText(book.getAuthor());
-        holder.rbItem.setProgress(book.getRating());
+        holder.rbItem.setProgress((int)book.getRating());
     }
 
     @Override

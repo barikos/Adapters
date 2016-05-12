@@ -9,7 +9,10 @@
     <string name="txt_dialog_header">Введите данные</string>
     <string name="edit_hint_name">Название книги</string>
     <string name="edit_hint_author">Автор</string>
-    <string name="btb_dialog_add">Добавить</string>
-    <string name="btb_dialog_dismiss">Отменить</string>
+    <string name="btn_dialog_add">Добавить</string>
+    <string name="btn_dialog_dismiss">Отменить</string>
+    <string name="btn_dialog_picker">Выбрать</string>
+
+    <string name="drawer_menu_item_1">Добавить</string>
 
 </resources>

@@ -1,10 +1,14 @@
 package com.minutes111.adapters.ui;
 
+import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,10 +19,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.minutes111.adapters.Const;
 import com.minutes111.adapters.R;
 import com.minutes111.adapters.ui.adapter.RecyclerBookAdapter;
+import com.minutes111.adapters.database.DBContact;
+import com.minutes111.adapters.database.DBHelper;
 import com.minutes111.adapters.util.ModelMapper;
 
 import java.util.ArrayList;
@@ -31,6 +38,8 @@ public class RecyclerActivity extends AppCompatActivity {
     private EditText mEditText;
     private Button mButtonSearch;
     private Button mButtonAdd;
+    private NavigationView mNavigationView;
+    private DrawerLayout mDrawerLayout;
 
     private ArrayList mData;
     private RecyclerView mRecyclerView;
@@ -48,10 +57,10 @@ public class RecyclerActivity extends AppCompatActivity {
 
         mEditText = (EditText) findViewById(R.id.edit_search);
         mButtonSearch = (Button) findViewById(R.id.btn_search);
-        mButtonAdd = (Button) findViewById(R.id.btn_add);
-
+        mButtonAdd = (Button) findViewById(R.id.btn_add_add);
+        mDrawerLayout = (DrawerLayout)findViewById(R.id.lay_drawer);
+        mNavigationView = (NavigationView)findViewById(R.id.nav_view);
         mRecyclerView = (RecyclerView) findViewById(R.id.rcView_recycler);
-        mRecyclerView.setHasFixedSize(true);
 
         mDBHelper = new DBHelper(this);
         try {
@@ -69,6 +78,9 @@ public class RecyclerActivity extends AppCompatActivity {
         mData = ModelMapper.getListBookModel(cursor);
         cursor.close();
 
+        mNavigationView.setNavigationItemSelectedListener(getListener());
+
+        mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -76,6 +88,31 @@ public class RecyclerActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data == null){
+            return;
+        }
+        try {
+            ContentValues cv = new ContentValues();
+            cv.put(DBContact.KEY_NAME,data.getStringExtra(Const.ATTR_BOOK_NAME));
+            cv.put(DBContact.KEY_AUTH,data.getStringExtra(Const.ATTR_BOOK_AUTH));
+            cv.put(DBContact.KEY_IMG,data.getByteArrayExtra(Const.ATTR_BOOK_IMG));
+            cv.put(DBContact.KEY_RATING,data.getFloatExtra(Const.ATTR_BOOK_RATING,0));
+            mDB.insert(DBContact.TABLE_NAME, null, cv);
+            Toast.makeText(RecyclerActivity.this, "The book have been added", Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+
+        }
+
+        Cursor cursor = mDB.query(DBContact.TABLE_NAME, null, null, null, null, null, null);
+        mData = ModelMapper.getListBookModel(cursor);
+        cursor.close();
+
+        mAdapter = new RecyclerBookAdapter(this, mData, ATTR_LAYOUT_LIN);
+        mRecyclerView.setAdapter(mAdapter);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -108,6 +145,15 @@ public class RecyclerActivity extends AppCompatActivity {
         mDB.close();
     }
 
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        }else {
+            super.onBackPressed();
+        }
+    }
+
     public void onClickSearch(View view){
         String searchFilter = mEditText.getText().toString();
         String selection = String.format("%s like ?", DBContact.KEY_NAME);
@@ -122,13 +168,35 @@ public class RecyclerActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    public void onClickAdd(View view){
-        showAddDialog();
-    }
 
-    private void showAddDialog(){
+
+    /*private void showAddDialog(){
         FragmentManager fm = getSupportFragmentManager();
         AddBookDialogFragment dialogFragment = AddBookDialogFragment.newInstance("Some title");
-        dialogFragment.show(fm,"fragment_edit");
+        dialogFragment.show(fm, "fragment_edit");
+    }*/
+
+    /*@Override
+    public void createNewBook(Book book) {
+        ContentValues cv = new ContentValues();
+        cv.clear();
+        cv.put(DBContact.KEY_NAME, book.getName());
+        cv.put(DBContact.KEY_AUTH, book.getAuthor());
+        long id = mDB.insert(DBContact.TABLE_NAME, null, cv);
+        Log.d(Const.LOG_TAG, book.getName() + " " + book.getAuthor());
+    }*/
+
+    private NavigationView.OnNavigationItemSelectedListener getListener(){
+        return new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                if (item.getItemId() == R.id.drawer_menu_item_1){
+                    Intent intent = new Intent(RecyclerActivity.this,AddBookActivity.class);
+                    startActivityForResult(intent,Const.RESULT_CODE_ADD_BOOK);
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                }
+                return false;
+            }
+        };
     }
 }

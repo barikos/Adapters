@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.minutes111.adapters.Const;
 import com.minutes111.adapters.model.Book;
-import com.minutes111.adapters.ui.DBContact;
+import com.minutes111.adapters.database.DBContact;
 
 import java.util.ArrayList;
 

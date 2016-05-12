@@ -33,23 +33,17 @@ public class Const {
             R.drawable.img_book_ward,
             R.drawable.img_book_comp};
 
-
-    public static final int[] RATING = {4,4,5,8,7,8,9,4,8,7,8,8};
-
+    public static final float[] RATING = {3,3,4,5,4,5,5,3,4,5,4,4};
 
     public final static String FRAG_TITLE = "dialogTitle";
 
+    public static int RESULT_CODE_PIKER = 1;
+    public static int RESULT_CODE_ADD_BOOK = 2;
 
-    /*public ArrayList getBooksData(){
-        ArrayList arrayList = new ArrayList();
-        for (int i = 0; i<AUTHORS.length; i++){
-            arrayList.add(new Book()
-                    .setImage(IMAGES_BOOK[i])
-                    .setName(BOOKS[i])
-                    .setAuthor(AUTHORS[i])
-                    .setRating(RATING[i]));
-        }
-        return arrayList;
-    }*/
+    public static String ATTR_BOOK_NAME = "name";
+    public static String ATTR_BOOK_AUTH = "author";
+    public static String ATTR_BOOK_IMG = "img";
+    public static String ATTR_BOOK_RATING = "rating";
+
 
 }
