@@ -102,7 +102,7 @@ public class RecyclerActivity extends AppCompatActivity {
             cv.put(DBContact.KEY_RATING,data.getFloatExtra(Const.ATTR_BOOK_RATING,0));
             mDB.insert(DBContact.TABLE_NAME, null, cv);
             Toast.makeText(RecyclerActivity.this, "The book have been added", Toast.LENGTH_SHORT).show();
-        }catch (Exception e){
+        }catch (SQLiteException e){
 
         }
 
@@ -168,23 +168,6 @@ public class RecyclerActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-
-
-    /*private void showAddDialog(){
-        FragmentManager fm = getSupportFragmentManager();
-        AddBookDialogFragment dialogFragment = AddBookDialogFragment.newInstance("Some title");
-        dialogFragment.show(fm, "fragment_edit");
-    }*/
-
-    /*@Override
-    public void createNewBook(Book book) {
-        ContentValues cv = new ContentValues();
-        cv.clear();
-        cv.put(DBContact.KEY_NAME, book.getName());
-        cv.put(DBContact.KEY_AUTH, book.getAuthor());
-        long id = mDB.insert(DBContact.TABLE_NAME, null, cv);
-        Log.d(Const.LOG_TAG, book.getName() + " " + book.getAuthor());
-    }*/
 
     private NavigationView.OnNavigationItemSelectedListener getListener(){
         return new NavigationView.OnNavigationItemSelectedListener() {

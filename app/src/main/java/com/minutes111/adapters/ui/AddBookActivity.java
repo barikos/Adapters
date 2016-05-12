@@ -56,7 +56,6 @@ public class AddBookActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        Log.d(Const.LOG_TAG, String.valueOf(v.getId()));
         switch (v.getId()) {
             case R.id.btn_add_picker:
                 Intent intent = new Intent();
@@ -91,6 +90,5 @@ public class AddBookActivity extends AppCompatActivity implements View.OnClickLi
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

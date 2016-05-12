@@ -35,8 +35,6 @@ public class Const {
 
     public static final float[] RATING = {3,3,4,5,4,5,5,3,4,5,4,4};
 
-    public final static String FRAG_TITLE = "dialogTitle";
-
     public static int RESULT_CODE_PIKER = 1;
     public static int RESULT_CODE_ADD_BOOK = 2;
 
@@ -44,6 +42,5 @@ public class Const {
     public static String ATTR_BOOK_AUTH = "author";
     public static String ATTR_BOOK_IMG = "img";
     public static String ATTR_BOOK_RATING = "rating";
-
 
 }
